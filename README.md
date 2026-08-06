@@ -28,7 +28,7 @@ Outputs:  C:\BlueWave\outputs
 | Week 9 | Logistic Stacking Fusion Model | Real deep-learning systems often contain several specialised models. A fusion layer creates one session-level decision while preserving missing-evidence information. |
 | Week 10 Part B | Benchmark MLP | Deep-learning deployment requires evidence about efficiency, scalability, and reliability—not only predictive accuracy. |
 
-There is intentionally no Week 6 tutorial.
+There is no Week 6 tutorial (Flexible Week).
 
 ## Tutor Use
 
