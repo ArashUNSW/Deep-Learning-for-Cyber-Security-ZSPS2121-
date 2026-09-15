@@ -1,4 +1,4 @@
-# Deep Learning for Cyber Security
+# ZSPS2121 - Deep Learning for Cyber Security
 
 <style>
 .box {
