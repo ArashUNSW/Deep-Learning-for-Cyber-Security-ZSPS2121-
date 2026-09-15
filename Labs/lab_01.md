@@ -176,7 +176,120 @@ C:\BlueWave\outputs\week01\week01_authentication_predictions.csv
 C:\BlueWave\outputs\week01\week01_confusion_matrix.png
 ```
 
-## Challenge
+## Assessed Challenge — Individual Submission
+
+This challenge is part of the tutorial submission. Your answer must be based on **your own executed notebook and your own observed results**.
+
+### Your Individual Challenge Settings
+
+Use only the **last three digits** of your student number.
+
+```python
+STUDENT_LAST3 = 123  # replace 123 with your own last three digits
+STUDENT_SEED = 1000 + STUDENT_LAST3
+CHALLENGE_GROUP = STUDENT_LAST3 % 10
+
+if CHALLENGE_GROUP <= 3:
+    CHALLENGE_VARIANT = "A"
+elif CHALLENGE_GROUP <= 6:
+    CHALLENGE_VARIANT = "B"
+else:
+    CHALLENGE_VARIANT = "C"
+
+print("Student seed:", STUDENT_SEED)
+print("Challenge variant:", CHALLENGE_VARIANT)
+```
+
+Where a PyTorch or NumPy random seed is used in the challenge, use `STUDENT_SEED`.
+
+### What You Must Submit for the Challenge
+
+Submit all of the following:
+
+1. the completed challenge code in your notebook;
+2. the executed output showing your assigned challenge variant;
+3. an **Evidence Table** containing the exact numerical values requested below;
+4. the requested plot or CSV output;
+5. a **150–250 word interpretation** that refers to your actual measured values;
+6. a short **Code Explanation** answering the tutorial-specific question; and
+7. the declaration:
+
+> I generated the reported results from my own Skillable lab run and can explain the code and results.
+
+Follow the course rules for the use of generative AI or other assistance. Generic explanations that are not supported by the submitted notebook outputs do not satisfy this challenge.
+
+
+
+### Challenge — Decision Threshold and SOC Workload
+
+Your assigned threshold pair is:
+
+| Variant | Threshold 1 | Threshold 2 |
+|---|---:|---:|
+| A | 0.25 | 0.55 |
+| B | 0.35 | 0.65 |
+| C | 0.45 | 0.75 |
+
+Use the probabilities already produced by the baseline model.
+
+#### Algorithm
+
+For each assigned threshold:
+
+1. convert probability to a binary prediction;
+2. calculate precision, recall, and F1-score;
+3. calculate the number of predicted alerts;
+4. calculate the number of false positives and false negatives;
+5. compare the two operating points.
+
+Complete:
+
+```python
+from sklearn.metrics import (
+    confusion_matrix,
+    precision_score,
+    recall_score,
+    f1_score
+)
+
+threshold_map = {
+    "A": [0.25, 0.55],
+    "B": [0.35, 0.65],
+    "C": [0.45, 0.75]
+}
+
+assigned_thresholds = threshold_map[CHALLENGE_VARIANT]
+
+challenge_rows = []
+
+for threshold in assigned_thresholds:
+    # TODO: convert test_probability to predictions.
+    prediction = None
+
+    # TODO: calculate TN, FP, FN, TP.
+    tn, fp, fn, tp = 0, 0, 0, 0
+
+    # TODO: append threshold, precision, recall, F1,
+    # alert count, FP and FN to challenge_rows.
+    raise NotImplementedError("Complete the threshold challenge.")
+```
+
+#### Evidence Table
+
+| Threshold | Precision | Recall | F1 | Alerts | False Positives | False Negatives |
+|---:|---:|---:|---:|---:|---:|---:|
+| assigned 1 | | | | | | |
+| assigned 2 | | | | | | |
+
+#### Code Explanation
+
+Why does changing the threshold alter the SOC workload even though the trained model has not changed?
+
+#### Interpretation
+
+State which of your two thresholds you would choose **for this synthetic exercise** and justify the decision using at least three values from your Evidence Table.
+
+## Practice Challenge
 
 Change the decision threshold from `0.50` to `0.30` and `0.70`.
 
