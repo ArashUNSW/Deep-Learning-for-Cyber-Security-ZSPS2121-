@@ -1,5 +1,3 @@
-# Deep-Learning-for-Cyber-Security-ZSPS2121
-
 # BlueWave Deep-Learning Tutorials
 
 This package contains two Markdown files for each tutorial:
